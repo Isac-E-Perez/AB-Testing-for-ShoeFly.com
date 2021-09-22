@@ -6,3 +6,5 @@ For this project, I implemented data analysis using R. I used the libraries read
 ### Note:
 
 This data comes from ShoeFly.com 
+
+After analyzing the data, ad A outperformed ad B on every day of the week except Tuesday and Sunday. It seems that ad A is the best choice for ShoeFly.com
