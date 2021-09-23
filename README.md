@@ -10,7 +10,7 @@ This data comes from ShoeFly.com
   
 ### Results: 
 
-First, I wanted to know which platfrom was getting the most views and named the value *views_by_utm*.
+First, I wanted to know which platfrom was getting the most views and named the variable *views_by_utm*.
 
  <img width="234" alt="Screen Shot 2021-09-23 at 3 43 35 PM" src="https://user-images.githubusercontent.com/89553126/134581205-6f275991-59d5-492a-8151-28cb17618a9e.png">
 
