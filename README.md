@@ -47,10 +47,15 @@ Approximately the same number of epople were shown both ads.
  
 From the analyzed data we could see that ad A had more clicks than ad B. 
 
-There is more information to gather though. We could also see how well each ad performed during the week.   
+There is more information to gather though. We could also see how well each ad performed during the week by comparing ad A and B and following similar steps we done before.   
+ 
+ **Ad A's performance during the week + percentage + filtered non-clicks**
+ 
+ <img width="373" alt="Screen Shot 2021-09-23 at 4 04 27 PM" src="https://user-images.githubusercontent.com/89553126/134583844-0c802090-e6df-4a8c-8eef-fdaa4178a9fd.png">
+ 
+ **Ad B's performance during the week + percentage + filtered non-clicks** 
+ 
+  
+<img width="373" alt="Screen Shot 2021-09-23 at 4 04 32 PM" src="https://user-images.githubusercontent.com/89553126/134583858-7a7f4d90-3f0b-46db-a4d2-8c12c37fc0e8.png">
  
 After analyzing the data, ad A outperformed ad B on every day of the week except Tuesday and Sunday. It seems that ad A is the best choice for ShoeFly.com
-
- 
-
- 
