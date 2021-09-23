@@ -43,9 +43,8 @@ Approximately the same number of epople were shown both ads.
 
 <img width="356" alt="Screen Shot 2021-09-23 at 3 49 18 PM" src="https://user-images.githubusercontent.com/89553126/134581966-d233c3f8-5be1-420d-bb1a-a648476666a5.png">
 
-<img width="320" alt="Screen Shot 2021-09-23 at 3 49 39 PM" src="https://user-images.githubusercontent.com/89553126/134581977-fd7![Uploading Screen Shot 2021-09-23 at 3.57.30 PM.png…]()
-d2e41-d0f9-425d-a609-ee013cf03f97.png">
-
+<img width="323" alt="Screen Shot 2021-09-23 at 3 59 43 PM" src="https://user-images.githubusercontent.com/89553126/134583177-a898901e-9877-4f84-8a9a-a2f01afb3e65.png">
+ 
 From the analyzed data we could see that ad A had more clicks than ad B. 
 
 There is more information to gather though. We could also see how well each ad performed during the week.   
