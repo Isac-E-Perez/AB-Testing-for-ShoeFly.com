@@ -10,11 +10,11 @@ This data comes from ShoeFly.com
   
 ### Results: 
 
-First, I wanted to know which platfrom was getting the most views and named it views_by_utm.
+First, I wanted to know which platfrom was getting the most views and named the value *views_by_utm*.
 
 <img width="351" alt="Screen Shot 2021-09-23 at 1 23 04 PM" src="https://user-images.githubusercontent.com/89553126/134564003-e04361a3-782a-44dd-98cd-ec6076676d61.png">
 
-I found the percentage of users, by platform, who clicked on an ad. Afterwards, I filtered the ad_click to ensure only those who clicked the ad would be counted and compared with.
+I found the percentage of users, by platform, who clicked on an ad. Afterwards, I filtered *ad_click* to ensure only those who clicked the ad would be counted and compared with.
 
 **Original Data grouped by utm_source, ad_clicked**
 
