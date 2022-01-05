@@ -24,10 +24,10 @@ head(views_by_utm)
 ## # A tibble: 4 x 2
 ## utm_source count
 ##   <chr>    <int>
-## 1 email     255
-## 2 facebook  504
-## 3 google    680
-## 4 twitter   215
+## 1 email      255
+## 2 facebook   504
+## 3 google     680
+## 4 twitter    215
 ```
 
 Afterwards, I found the percentage of users, by platform, who clicked on an ad. Then, I filtered *ad_click* to ensure that only those who clicked the ad would be counted and compared with.
@@ -61,10 +61,10 @@ head(percentage_by_utm)
 ## # A tibble: 4 x 4
 ## utm_source ad_clicked count percentage
 ##   <chr>    <lgl>    <int>    <dbl>
-## 1 email     TRUE      80     0.314
-## 2 facebook  TRUE     180     0.357
-## 3 google    TRUE     239     0.351
-## 4 twitter   TRUE      66     0.307
+## 1 email     TRUE       80    0.314
+## 2 facebook  TRUE      180    0.357
+## 3 google    TRUE      239    0.351
+## 4 twitter   TRUE       66    0.307
 ```
   
 Secondly, I wanted to know how many user were shown ad A or ad B from all platforms and clicked on it.  
