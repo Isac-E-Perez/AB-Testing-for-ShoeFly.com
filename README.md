@@ -12,38 +12,99 @@ This data comes from ShoeFly.com
 
 First, I wanted to know which platfrom was getting the most views and named the variable *views_by_utm*.
 
- <img width="234" alt="Screen Shot 2021-09-23 at 3 43 35 PM" src="https://user-images.githubusercontent.com/89553126/134581205-6f275991-59d5-492a-8151-28cb17618a9e.png">
+```R
+# define views_by_utm here:
+views_by_utm <- ad_clicks %>%
+group_by(utm_source) %>%
+summarize(count = n())
+head(views_by_utm)
+```
 
-<img width="179" alt="Screen Shot 2021-09-23 at 3 43 46 PM" src="https://user-images.githubusercontent.com/89553126/134581232-96d4b586-7f19-4ef9-a156-97868c08eedc.png">
+```R
+## # A tibble: 4 x 2
+## utm_source count
+##   <chr>    <int>
+## 1 email     255
+## 2 facebook  504
+## 3 google    680
+## 4 twitter   215
+```
 
 Afterwards, I found the percentage of users, by platform, who clicked on an ad. Then, I filtered *ad_click* to ensure that only those who clicked the ad would be counted and compared with.
 
 **Original Data grouped by *utm_source*, *ad_clicked***
 
-<img width="267" alt="Screen Shot 2021-09-23 at 1 22 44 PM" src="https://user-images.githubusercontent.com/89553126/134562708-0ab687e7-1bb1-4c38-9129-c21b4ee0fd0b.png">
+```R
+## # A tibble: 6 x 3
+## utm_source ad_clicked count
+##   <chr>    <lgl>    <int>
+## 1 email     FALSE     175
+## 2 facebook  TRUE       80
+## 3 google    FALSE     324
+## 4 twitter   TRUE      180
+## 5 google    FALSE     441
+## 6 google    TRUE      239
+```
 
 **Percentage + Filter**
 
-<img width="329" alt="Screen Shot 2021-09-23 at 1 22 59 PM" src="https://user-images.githubusercontent.com/89553126/134562734-f87f80be-a985-4052-8dfc-e133c6b19d77.png">
+```R
+# define percentage_by_utm here:
+percentage_by_utm <- clicks_by_utm %>%
+group_by(utm_source) %>%
+mutate(percentage = count/sum(count)) %>%
+filter(ad_clicked==TRUE)
+head(percentage_by_utm)
+```
 
-
- <img width="351" alt="Screen Shot 2021-09-23 at 1 23 04 PM" src="https://user-images.githubusercontent.com/89553126/134562743-ad23f721-6df1-41d0-926e-578deb0e3602.png">
+```R
+## # A tibble: 4 x 4
+## utm_source ad_clicked count percentage
+##   <chr>    <lgl>    <int>    <dbl>
+## 1 email     TRUE      80     0.314
+## 2 facebook  TRUE     180     0.357
+## 3 google    TRUE     239     0.351
+## 4 twitter   TRUE      66     0.307
+```
   
 Secondly, I wanted to know how many user were shown ad A or ad B from all platforms and clicked on it.  
 
 **How many users were shown the add, *experiment_split*** 
 
-<img width="525" alt="Screen Shot 2021-09-23 at 3 57 30 PM" src="https://user-images.githubusercontent.com/89553126/134582990-ce535b7c-7cc5-4e48-b921-96a180651a83.png">
+```R
+# define experiment_split here:
+experiment_split <- ad_clicks %>% group_by(experimental_group) %>%
+summarize(count=n())
+head(experiment_split)
+```
 
-<img width="234" alt="Screen Shot 2021-09-23 at 3 57 41 PM" src="https://user-images.githubusercontent.com/89553126/134583002-66d600ac-db03-4ade-9c11-d81661a90ba2.png">
+```R
+## # A tibble: 2 x 2
+## experimental_group count
+##   <chr>    <int>
+## 1 A          827
+## 2 B          827 
+```
 
 Approximately the same number of epople were shown both ads.
 
 **How many users clicked the add, *clicks_by_experiment***
 
-<img width="356" alt="Screen Shot 2021-09-23 at 3 49 18 PM" src="https://user-images.githubusercontent.com/89553126/134581966-d233c3f8-5be1-420d-bb1a-a648476666a5.png">
+```R
+clicks_by_experiment <- ad_clicks %>%
+group_by(ad_clicked, experimental_group) %>%
+summarize(count=n()) %>%
+filter(ad_clicked==TRUE)
+head(clicks_by_experiment)
+```
 
-<img width="323" alt="Screen Shot 2021-09-23 at 3 59 43 PM" src="https://user-images.githubusercontent.com/89553126/134583177-a898901e-9877-4f84-8a9a-a2f01afb3e65.png">
+```R
+## # A tibble: 2 x 2
+## experimental_group count
+##   <lgl>    <chr>    <int>
+## 1 TRUE     A          310
+## 2 TRUE     B          255
+```
  
 From the analyzed data we could see that ad A had more clicks than ad B. 
 
@@ -51,11 +112,34 @@ There is more information to gather though. We could also see how well each ad p
  
  **Ad A's performance during the week + percentage + filtered non-clicks**
  
- <img width="373" alt="Screen Shot 2021-09-23 at 4 04 27 PM" src="https://user-images.githubusercontent.com/89553126/134583844-0c802090-e6df-4a8c-8eef-fdaa4178a9fd.png">
+```R
+## # A tibble: 7 x 4
+## # Groups: day [7]
+##   day      ad_clicked count    percentage
+##   <chr>          <lgl>      <int>    <dbl>
+## 1 1 - Monday     TRUE          43    0.381
+## 2 2 - Tudesday   TRUE          43    0.361
+## 3 3 - Wednesday  TRUE          38    0.306
+## 4 4 - Thursday   TRUE          47    0.405
+## 5 5 - Friday     TRUE          51    0.398
+## 6 6 - Saturday   TRUE          45    0.381
+## 7 7 - Sunday     TRUE          43    0.394
+```
  
  **Ad B's performance during the week + percentage + filtered non-clicks** 
  
-  
-<img width="373" alt="Screen Shot 2021-09-23 at 4 04 32 PM" src="https://user-images.githubusercontent.com/89553126/134583858-7a7f4d90-3f0b-46db-a4d2-8c12c37fc0e8.png">
+```R
+## # A tibble: 7 x 4
+## # Groups: day [7]
+##   day      ad_clicked count    percentage
+##   <chr>          <lgl>      <int>    <dbl>
+## 1 1 - Monday     TRUE          32    0.283
+## 2 2 - Tudesday   TRUE          45    0.378
+## 3 3 - Wednesday  TRUE          35    0.282
+## 4 4 - Thursday   TRUE          29    0.250
+## 5 5 - Friday     TRUE          38    0.297
+## 6 6 - Saturday   TRUE          42    0.356
+## 7 7 - Sunday     TRUE          34    0.312
+```
  
 After analyzing the data, ad A outperformed ad B on every day of the week except Tuesday and Sunday. It seems that ad A is the best choice for ShoeFly.com
